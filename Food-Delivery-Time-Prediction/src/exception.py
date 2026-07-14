@@ -1,5 +1,4 @@
 import sys
-
 class CustomException(Exception):
     """
     Custom Exception class for the project.
@@ -21,6 +20,5 @@ class CustomException(Exception):
             f"Line Number: {self.line_number}\n"
             f"Error Message: {error_message}"
         )
-
     def __str__(self):
         return self.error_message
