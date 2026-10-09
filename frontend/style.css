@@ -1,0 +1,264 @@
+
+:root {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172b3a;
+    background: #f3f8fb;
+    font-synthesis: none;
+    --blue: #1685c5;
+    --blue-dark: #086ba8;
+    --muted: #6b7d8b;
+    --border: #dce7ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.topbar {
+    min-height: 68px;
+    padding: 0 6%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #172b3a;
+    font-weight: 750;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #e1f3ff;
+    color: var(--blue-dark);
+}
+
+.accent {
+    color: var(--blue);
+}
+
+.status {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: #21a675;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 42px 0 64px;
+}
+
+.hero {
+    margin-bottom: 26px;
+}
+
+.eyebrow {
+    color: var(--blue-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: clamp(30px, 5vw, 43px);
+    letter-spacing: -1.4px;
+}
+
+.subtitle,
+.panel-heading p,
+.hint,
+.result-note {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.subtitle {
+    max-width: 580px;
+}
+
+.panel,
+.result {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: clamp(18px, 4vw, 32px);
+    box-shadow: 0 8px 30px rgba(32, 75, 103, 0.05);
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.panel-heading h2,
+.result h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.panel-heading p {
+    margin-bottom: 0;
+}
+
+.field-count {
+    background: #eaf6ff;
+    color: var(--blue-dark);
+    border-radius: 20px;
+    padding: 7px 10px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.section-label {
+    font-size: 14px;
+    margin: 25px 0 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 45px;
+    padding: 10px 12px;
+    border: 1px solid #cedce5;
+    border-radius: 9px;
+    background: #fff;
+    color: #203847;
+    font: inherit;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #b9e2fb;
+    border-color: var(--blue);
+}
+
+.hint {
+    font-size: 12px;
+    margin: 22px 0;
+}
+
+button {
+    width: 100%;
+    min-height: 49px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--blue);
+    color: white;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--blue-dark);
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.result {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.prediction-value {
+    margin: 18px 0 8px;
+    color: var(--blue-dark);
+    font-size: clamp(42px, 8vw, 62px);
+    font-weight: 800;
+}
+
+.minutes {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.error {
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 9px;
+    background: #fff0f0;
+    color: #a12727;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+footer {
+    padding: 24px 16px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 560px) {
+    .topbar {
+        padding: 0 4%;
+    }
+
+    .container {
+        width: 92%;
+        padding-top: 28px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .panel-heading {
+        align-items: flex-start;
+    }
+
+    .brand {
+        font-size: 14px;
+    }
+}

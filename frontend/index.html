@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate food delivery time using machine learning.">
+    <title>DeliveryTime AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a href="/" class="brand">
+            <span class="brand-icon">D</span>
+            <span>DeliveryTime <span class="accent">AI</span></span>
+        </a>
+        <span class="status"><span class="dot"></span> ML Prediction</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">SMART DELIVERY ESTIMATOR</p>
+            <h1>Know your delivery time.</h1>
+            <p class="subtitle">
+                Enter order and delivery details to estimate how long
+                your food delivery may take.
+            </p>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Delivery details</h2>
+                    <p>Fill in all fields to generate a prediction.</p>
+                </div>
+                <span class="field-count">16 inputs</span>
+            </div>
+
+            <form id="prediction-form">
+                <h3 class="section-label">Delivery partner</h3>
+                <div class="form-grid">
+                    <label>Partner age
+                        <input name="Delivery_person_Age" type="number"
+                               min="1" max="100" step="1" value="28" required>
+                    </label>
+                    <label>Partner rating
+                        <input name="Delivery_person_Ratings" type="number"
+                               min="0" max="5" step="0.1" value="4.7" required>
+                    </label>
+                    <label>Vehicle condition
+                        <input name="Vehicle_condition" type="number"
+                               min="0" max="10" step="1" value="2" required>
+                    </label>
+                    <label>Multiple deliveries
+                        <input name="multiple_deliveries" type="number"
+                               min="0" step="1" value="1" required>
+                    </label>
+                </div>
+
+                <h3 class="section-label">Order and environment</h3>
+                <div class="form-grid">
+                    <label>Weather
+                        <select name="Weatherconditions" required>
+                            <option value="Sunny">Sunny</option>
+                            <option value="Cloudy">Cloudy</option>
+                            <option value="Fog">Fog</option>
+                            <option value="Stormy">Stormy</option>
+                            <option value="Windy">Windy</option>
+                            <option value="Sandstorms">Sandstorms</option>
+                        </select>
+                    </label>
+                    <label>Traffic density
+                        <select name="Road_traffic_density" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Jam">Jam</option>
+                        </select>
+                    </label>
+                    <label>Order type
+                        <select name="Type_of_order" required>
+                            <option value="Snack">Snack</option>
+                            <option value="Meal">Meal</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Buffet">Buffet</option>
+                        </select>
+                    </label>
+                    <label>Vehicle type
+                        <select name="Type_of_vehicle" required>
+                            <option value="motorcycle">Motorcycle</option>
+                            <option value="scooter">Scooter</option>
+                            <option value="electric_scooter">Electric scooter</option>
+                            <option value="bicycle">Bicycle</option>
+                        </select>
+                    </label>
+                    <label>Festival
+                        <select name="Festival" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </label>
+                    <label>City type
+                        <select name="City" required>
+                            <option value="Urban">Urban</option>
+                            <option value="Metropolitian">Metropolitian</option>
+                            <option value="Semi-Urban">Semi-Urban</option>
+                        </select>
+                    </label>
+                </div>
+
+                <h3 class="section-label">Distance and time</h3>
+                <div class="form-grid">
+                    <label>Delivery distance (km)
+                        <input name="Delivery_Distance" type="number"
+                               min="0.01" step="0.01" value="5.5" required>
+                    </label>
+                    <label>Order hour (0–23)
+                        <input name="Order_Hour" type="number"
+                               min="0" max="23" step="1" value="14" required>
+                    </label>
+                    <label>Order minute (0–59)
+                        <input name="Order_Minute" type="number"
+                               min="0" max="59" step="1" value="30" required>
+                    </label>
+                    <label>Day of week
+                        <select name="Day_of_Week" required>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                            <option>Sunday</option>
+                        </select>
+                    </label>
+                    <label>Month
+                        <select name="Month" required>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9" selected>September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </label>
+                    <label>Weekend?
+                        <select name="Is_Weekend" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </label>
+                </div>
+
+                <p class="hint">
+                    Use values and category spellings found in your training dataset.
+                    Defaults are sample inputs, not live order information.
+                </p>
+
+                <button id="predict-button" type="submit">
+                    <span id="button-text">Predict delivery time</span>
+                    <span aria-hidden="true"> →</span>
+                </button>
+            </form>
+        </section>
+
+        <section id="result" class="result" aria-live="polite" hidden>
+            <p class="eyebrow">MODEL ESTIMATE</p>
+            <h2>Estimated delivery time</h2>
+            <p class="prediction-value">
+                <span id="prediction">--</span>
+                <span class="minutes">min</span>
+            </p>
+            <p class="result-note">
+                This is an ML estimate, not a guaranteed arrival time.
+            </p>
+        </section>
+
+        <p id="error-message" class="error" role="alert" hidden></p>
+    </main>
+
+    <footer>
+        Food Delivery Time Prediction · Machine Learning Project
+    </footer>
+</body>
+</html>
