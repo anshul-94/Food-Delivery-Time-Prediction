@@ -33,3 +33,19 @@ dist/
 # Cache
 .pytest_cache/
 .cache/
+
+
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Raw and processed datasets
+data/
