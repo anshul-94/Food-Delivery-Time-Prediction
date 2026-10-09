@@ -49,3 +49,4 @@ htmlcov/
 
 # Raw and processed datasets
 data/
+.DS_Store
