@@ -50,3 +50,22 @@ htmlcov/
 # Raw and processed datasets
 data/
 .DS_Store
+
+# MLflow local tracking database and artifacts
+mlflow_data/
+mlruns/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Mac
+.DS_Store
