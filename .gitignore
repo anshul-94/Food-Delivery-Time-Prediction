@@ -1,71 +1,59 @@
 # Python
-__pycache__/
+
+**pycache**/
 *.py[cod]
 
-# Virtual Environment
+# Virtual Environments
+
 venv/
 .venv/
+env/
+
+# Environment Variables
+
 .env
 
 # Jupyter
+
 .ipynb_checkpoints/
 
 # VS Code
+
 .vscode/
 
 # macOS
+
 .DS_Store
 
 # Logs
+
 logs/
 *.log
 
 # Models
+
 models/
 *.pkl
 *.joblib
 
+# Datasets
+
+data/
+
+# MLflow
+
+mlflow_data/
+mlruns/
+
 # Build Files
+
 build/
 dist/
 *.egg-info/
 
-# Cache
+# Testing and Cache
+
 .pytest_cache/
 .cache/
-
-
-
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.env
-.DS_Store
-.ipynb_checkpoints/
-.pytest_cache/
 .coverage
 htmlcov/
-
-# Raw and processed datasets
-data/
-.DS_Store
-
-# MLflow local tracking database and artifacts
-mlflow_data/
-mlruns/
-
-# Python cache
-__pycache__/
-*.py[cod]
-
-# Virtual environments
-.venv/
-venv/
-env/
-
-# Jupyter checkpoints
-.ipynb_checkpoints/
-
-# Mac
-.DS_Store
